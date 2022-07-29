@@ -118,7 +118,7 @@ pipeline {
                         sh 'chmod u+x ./kubectl'
                         sh """
                            ./kubectl patch deployment frontend -n product -p \
-                           '{"spec":{"template":{"spec":{"containers":[{"name":"server","image":"${DOCKER_IMAGE_NAME}:${env.BUILD_NUMBER}"}]}}}}'
+                           '{"spec":{"template":{"spec":{"containers":[{"name":"server","image":"${DOCKER_IMAGE_NAME}:$latest"}]}}}}'
                            """
                     }
                 }
